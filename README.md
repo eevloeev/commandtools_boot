@@ -16,9 +16,9 @@ Deploy the bot as a Docker container with following environment variables:
 For example, you can use ready-made Docker image [eevloeev/commandtools_bot](https://hub.docker.com/r/eevloeev/commandtools_bot) from Docker Hub for quick deployment:
 
 ```bash
-docker run -d --name command-tools-bot \
-  -e BOT_TOKEN='<YOUR_TOKEN>' \
-  -e ALLOWED_USERS='<YOUR_USERS>' \
+docker run -d --name commandtools_bot --restart unless-stopped \
+  -e BOT_TOKEN='YOUR_TOKEN' \
+  -e ALLOWED_USERS='YOUR_USERS' \
   eevloeev/commandtools_bot
 ```
 
