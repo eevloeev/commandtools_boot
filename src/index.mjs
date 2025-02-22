@@ -18,7 +18,8 @@ while (true) {
     ) {
       for (const entity of update.message.entities) {
         if (entity.type === 'bot_command') {
-          const command = update.message.text.slice(entity.offset, entity.offset + entity.length);
+          // Get the command without the bot username
+          const command = update.message.text.slice(entity.offset, entity.offset + entity.length).split('@')[0];
           
           switch (command) {
             case '/getchatid':
