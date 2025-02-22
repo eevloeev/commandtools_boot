@@ -1,0 +1,14 @@
+{
+  "name": "command-tools-bot",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "dev": "node --env-file=.env --inspect --watch-path=src src/index.mjs"
+  },
+  "author": "Aslan Evloev <eevloeev@gmail.com>",
+  "description": "A bot for managing chats, retrieving IDs, and performing various tasks in Telegram.",
+  "imports": {
+    "#*": "./src/*"
+  }
+}
