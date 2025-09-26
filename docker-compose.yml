@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  command-tools-bot:
+    build: .
+    container_name: command-tools-bot
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ALLOWED_USERS=${ALLOWED_USERS}
+    volumes:
+      - ./logs:/app/logs
