@@ -22,16 +22,27 @@ while (true) {
           const command = update.message.text.slice(entity.offset, entity.offset + entity.length).split('@')[0];
           
           switch (command) {
-            case '/getchatid':
+            case '/getChatId':
               await request('sendMessage', {
                 chat_id: update.message.chat.id,
                 text: `Chat ID: \`${update.message.chat.id}\``,
                 parse_mode: 'MarkdownV2',
+                reply_to_message_id: update.message.message_id,
                 reply_markup: {
                   inline_keyboard: [
                     [{ text: 'Copy ID', copy_text: { text: update.message.chat.id } }]
                   ]
                 }
+              });
+              break;
+            case '/getRawData':              
+              const formattedData = `\`\`\`json\n${JSON.stringify(update, null, 2)}\n\`\`\``;
+              
+              await request('sendMessage', {
+                chat_id: update.message.chat.id,
+                text: formattedData,
+                parse_mode: 'MarkdownV2',
+                reply_to_message_id: update.message.message_id
               });
               break;
           }
